@@ -29,6 +29,10 @@ flowchart LR
 - **Clean endpoint.** The first Windows VM had software from an unverified source installed, so I rebuilt it from a clean ISO instead of trusting it. "Absence of evidence is not evidence of absence."
 - **Snapshots with the VM powered off.** This avoids large memory files and gives a clean restore point before every test.
 
+## ⚙️ Setup
+
+Step-by-step build with the commands that worked and a check for each step: [setup guide](setup/README.md).
+
 ## 🔍 Investigations
 
 | ID | Date | Rule | Verdict | Key lesson |
