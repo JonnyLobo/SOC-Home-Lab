@@ -1,4 +1,4 @@
--# Lab setup
+# Lab setup
 
 How I built the lab, with the commands that actually worked. Every step ends with a check, because a step that "finished" is not the same as a step that worked.
 
