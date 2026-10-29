@@ -1,4 +1,4 @@
-# Lab setup
+-# Lab setup
 
 How I built the lab, with the commands that actually worked. Every step ends with a check, because a step that "finished" is not the same as a step that worked.
 
@@ -22,7 +22,7 @@ Test-NetConnection 192.168.73.128 -Port 443    # dashboard
 
 - Official **Wazuh 4.14.5 OVA** (Amazon Linux 2023): manager, indexer and dashboard in one VM.
 - Resources: 8 GB RAM, 4 vCPU.
-- Address on the host-only network: `192.168.73.128`, assigned by VMware's DHCP (not configured as static). It has stayed the same so far, but if it changes, the agents lose their manager. Planned improvement: make it static.
+- Address on the host-only network: `192.168.73.128`, reserved for the Wazuh MAC address in VMware's DHCP (`C:\ProgramData\VMware\vmnetdhcp.conf`), so it never changes.
 
 **Check:** the dashboard opens at `https://192.168.73.128` from the host.
 
