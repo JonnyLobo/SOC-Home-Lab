@@ -38,9 +38,19 @@ Step-by-step build with the commands that worked and a check for each step: [set
 | ID | Date | Rule | Verdict | Key lesson |
 |---|---|---|---|---|
 | [TRIAGE-001](triage-notes/2026-10-11-WIN-LAB0-rule-92031.md) | 2026-10-11 | 92031: Discovery activity (T1087.001) | False positive | The Wazuh agent itself runs `net user` at startup: the monitoring tool can trigger its own alerts. |
-| [TRIAGE-002](triage-notes/2026-10-15-WIN-LAB1-rule-92213.md) | 2026-10-15 | 92213: Script created in Temp (T1105) | False positive | Wazuh stores alerts, not every event: the parent process was only visible in the local Sysmon log, correlated by `ProcessGuid`. |
+| [TRIAGE-002](triage-notes/2026-10-15-WIN-LAB1-rule-92213.md) | 2026-10-15 | 92213: Executable file dropped in folder commonly used by malware (T1105).| False positive | Wazuh stores alerts, not every event: the parent process was only visible in the local Sysmon log, correlated by `ProcessGuid`. |
 
 Every note follows the same template: metadata, scope, summary, evidence (process tree, key fields, checks), analysis, verdict, actions, **proposed tuning and its risk**.
+
+## 📸 Evidence
+
+| Screenshot | What it shows |
+|---|---|
+| [Agent active](screenshots/01-agent-active.png) | WIN-LAB1 reporting to the Wazuh manager |
+| [TRIAGE-001 alerts](screenshots/02-triage-001-rule-92031-alerts.png) | Rule 92031 alerts triggered by the Wazuh agent itself |
+| [TRIAGE-002 event](screenshots/03-triage-002-rule-92213-event.png) | Sysmon Event ID 11 with the `ProcessGuid` used for correlation |
+| [Rule 92213 definition](screenshots/03b-rule-92213-definition.png) | Why it fired: any `.ps1` created in `AppData\Local\Temp` |
+| [Setup evidence](screenshots/) | Agent removal, signature checks, ports and `ossec.conf` |
 
 ## 🛠️ Troubleshooting log
 
