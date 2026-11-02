@@ -5,7 +5,7 @@
 | Date | 2026-10-29 |
 | Evaluator | Jonny Lobo |
 | Alert | Wazuh rule 92213 (Sysmon EID 11), agent 001 WIN-LAB1 |
-| Ground truth | [TRIAGE-002](../triage-notes/TRIAGE-002.md): false positive. Confirmed chain: `explorer.exe` → `powershell.exe` → `__PSScriptPolicyTest_gyoffyrx.xy5.ps1` |
+| Ground truth | [TRIAGE-002](../triage-notes/2026-10-15-WIN-LAB1-rule-92213.md): false positive. Confirmed chain: `explorer.exe` → `powershell.exe` → `__PSScriptPolicyTest_gyoffyrx.xy5.ps1` |
 | Models | ChatGPT (free plan), Claude (free plan), Gemini (paid plan); web chat |
 | Runs | 3 per model, each in a new chat |
 | Prompt | [prompt-triage-92213.txt](prompts/prompt-triage-92213.txt) |

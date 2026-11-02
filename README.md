@@ -42,6 +42,14 @@ Step-by-step build with the commands that worked and a check for each step: [set
 
 Every note follows the same template: metadata, scope, summary, evidence (process tree, key fields, checks), analysis, verdict, actions, **proposed tuning and its risk**.
 
+## 🤖 AI triage evaluation
+
+I give the same raw Wazuh alert to several AI models and score their triage against my own investigation (verdict, evidence, reasoning, recommendation).
+
+| ID | Alert | Models | Key finding |
+|---|---|---|---|
+| [RESULTS-001](ai-triage-eval/RESULTS-001.md) | 92213 (TRIAGE-002) | ChatGPT, Claude, Gemini | 2 of 3 models invented evidence or closed the alert without checking the parent process. |
+
 ## 📸 Evidence
 
 | Screenshot | What it shows |
@@ -68,7 +76,7 @@ Real problems I hit while building the lab:
 - [ ] Active Directory domain controller
 - [ ] Simulated attacks with Atomic Red Team, mapped to MITRE ATT&CK
 - [ ] Custom detection rules (detection-as-code)
-- [ ] AI-assisted triage: compare AI models against my own investigations
+- [ ] AI-assisted triage: compare AI models against my own investigations (in progress: [RESULTS-001](ai-triage-eval/RESULTS-001.md))
 - [ ] Endpoint hardening from the CIS Benchmark baseline (currently 25% compliant per Wazuh SCA)
 
 ## 👤 Author
