@@ -50,6 +50,7 @@ I give the same raw Wazuh alert to several AI models and score their triage agai
 | ID | Alert | Models | Key finding |
 |---|---|---|---|
 | [RESULTS-001](ai-triage-eval/RESULTS-001.md) | 92213 (TRIAGE-002) | ChatGPT, Claude, Gemini | 2 of 3 models invented evidence or closed the alert without checking the parent process. |
+| [RESULTS-002](ai-triage-eval/RESULTS-002.md) | 92213 (TRIAGE-003) | ChatGPT, Claude, Gemini | The ranking reversed: Gemini went from 0/3 to 2/3 perfect answers. Only 3 of 8 valid runs thought of the UAC bypass. |
 
 ## 📸 Evidence
 
@@ -77,7 +78,7 @@ Real problems I hit while building the lab:
 - [ ] Active Directory domain controller
 - [ ] Simulated attacks with Atomic Red Team, mapped to MITRE ATT&CK
 - [ ] Custom detection rules (detection-as-code)
-- [ ] AI-assisted triage: compare AI models against my own investigations (in progress: [RESULTS-001](ai-triage-eval/RESULTS-001.md))
+- [ ] AI-assisted triage: compare AI models against my own investigations (in progress: [RESULTS-001](ai-triage-eval/RESULTS-001.md), [RESULTS-002](ai-triage-eval/RESULTS-002.md))
 - [ ] Endpoint hardening from the CIS Benchmark baseline (currently 25% compliant per Wazuh SCA)
 
 ## 👤 Author

@@ -1,0 +1,83 @@
+You are a Tier 1 SOC analyst. Below is a raw Wazuh alert in JSON.
+1. Verdict: true positive, false positive, or needs escalation.
+2. Evidence: list only the fields from the JSON that support your verdict.
+3. Reasoning: explain why.
+4. Recommendation: what tuning or next step would you propose, and its risk?
+If information is missing to decide, say exactly what you would need.
+
+<alert>
+{
+  "input": {
+    "type": "log"
+  },
+  "agent": {
+    "ip": "192.168.73.133",
+    "name": "WIN-LAB1",
+    "id": "001"
+  },
+  "manager": {
+    "name": "wazuh-server"
+  },
+  "data": {
+    "win": {
+      "eventdata": {
+        "image": "C:\\\\Windows\\\\system32\\\\cleanmgr.exe",
+        "processGuid": "{88fc4769-63a1-6ae3-5501-000000001000}",
+        "processId": "8324",
+        "ruleName": "EXE",
+        "utcTime": "2026-10-29 15:18:40.524",
+        "targetFilename": "C:\\\\Users\\\\Win-Lab0\\\\AppData\\\\Local\\\\Temp\\\\644C2154-888A-4F7D-9971-D52CFC1A8D23\\\\DismHost.exe",
+        "creationUtcTime": "2026-10-29 15:18:40.524",
+        "user": "WIN-LAB1\\\\Win-Lab0"
+      },
+      "system": {
+        "eventID": "11",
+        "keywords": "0x8000000000000000",
+        "providerGuid": "{5770385f-c22a-43e0-bf4c-06f5698ffbd9}",
+        "level": "4",
+        "channel": "Microsoft-Windows-Sysmon/Operational",
+        "opcode": "0",
+        "message": "\"File created:\r\nRuleName: EXE\r\nUtcTime: 2026-10-29 15:18:40.524\r\nProcessGuid: {88fc4769-63a1-6ae3-5501-000000001000}\r\nProcessId: 8324\r\nImage: C:\\Windows\\system32\\cleanmgr.exe\r\nTargetFilename: C:\\Users\\Win-Lab0\\AppData\\Local\\Temp\\644C2154-888A-4F7D-9971-D52CFC1A8D23\\DismHost.exe\r\nCreationUtcTime: 2026-10-29 15:18:40.524\r\nUser: WIN-LAB1\\Win-Lab0\"",
+        "version": "2",
+        "systemTime": "2026-10-29T15:18:40.5345003Z",
+        "eventRecordID": "2531",
+        "threadID": "4452",
+        "computer": "WIN-LAB1",
+        "task": "11",
+        "processID": "2624",
+        "severityValue": "INFORMATION",
+        "providerName": "Microsoft-Windows-Sysmon"
+      }
+    }
+  },
+  "rule": {
+    "firedtimes": 7,
+    "mail": true,
+    "level": 15,
+    "description": "Executable file dropped in folder commonly used by malware",
+    "groups": [
+      "sysmon",
+      "sysmon_eid11_detections",
+      "windows"
+    ],
+    "mitre": {
+      "technique": [
+        "Ingress Tool Transfer"
+      ],
+      "id": [
+        "T1105"
+      ],
+      "tactic": [
+        "Command and Control"
+      ]
+    },
+    "id": "92213"
+  },
+  "location": "EventChannel",
+  "decoder": {
+    "name": "windows_eventchannel"
+  },
+  "id": "1793287121.483445",
+  "timestamp": "2026-10-29T15:18:41.254+0000"
+}
+</alert>
