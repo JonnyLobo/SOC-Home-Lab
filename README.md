@@ -39,6 +39,7 @@ Step-by-step build with the commands that worked and a check for each step: [set
 |---|---|---|---|---|
 | [TRIAGE-001](triage-notes/2026-10-11-WIN-LAB0-rule-92031.md) | 2026-10-11 | 92031: Discovery activity (T1087.001) | False positive | The Wazuh agent itself runs `net user` at startup: the monitoring tool can trigger its own alerts. |
 | [TRIAGE-002](triage-notes/2026-10-15-WIN-LAB1-rule-92213.md) | 2026-10-15 | 92213: Executable file dropped in folder commonly used by malware (T1105).| False positive | Wazuh stores alerts, not every event: the parent process was only visible in the local Sysmon log, correlated by `ProcessGuid`. |
+| [TRIAGE-003](triage-notes/2026-10-29-WIN-LAB1-rule-92213.md) | 2026-10-29 | 92213: burst of 27 alerts at VM startup | False positive | 27 alerts, only 2 processes (SilentCleanup and Scripted Diagnostics). The same file pattern is a known UAC bypass: the evidence is who wrote the files, not the files themselves. |
 
 Every note follows the same template: metadata, scope, summary, evidence (process tree, key fields, checks), analysis, verdict, actions, **proposed tuning and its risk**.
 
